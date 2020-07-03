@@ -1,0 +1,643 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".MainActivity"
+    tools:showIn="@layout/activity_main">
+
+    <LinearLayout
+        android:id="@+id/weekNavigator"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@drawable/border"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/previousWeekBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="34dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="15dp"
+            android:layout_weight="1"
+            android:background="@drawable/primary_button_bg"
+            android:drawableLeft="@drawable/ic_baseline_arrow_back_ios_24px"
+            android:paddingLeft="4dp" />
+
+        <TextView
+            android:id="@+id/weekText"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:width="350dp"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:fontFamily="@font/carrois_gothic"
+            android:text="TextView"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            tools:text="Current Week" />
+
+        <Button
+            android:id="@+id/nextWeekBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="34dp"
+            android:layout_gravity="center"
+            android:layout_marginRight="15dp"
+            android:layout_weight="1"
+            android:background="@drawable/primary_button_bg"
+            android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24px"
+            android:paddingLeft="3dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/weekGoals"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/dailyCalText"
+                android:layout_width="278dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:paddingLeft="10dp"
+                android:paddingRight="1dp"
+                android:gravity="right|center_vertical"
+                android:fontFamily="@font/carrois_gothic"
+                android:text="Daily calories:"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btnDailyCal"
+                android:layout_width="64dp"
+                android:layout_height="22dp"
+                android:layout_gravity="center"
+                android:layout_marginRight="1pt"
+                android:layout_weight="1"
+                android:background="@drawable/primary_button_bg"
+                android:fontFamily="@font/carrois_gothic"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="26dp"
+                android:layout_gravity="center"
+                android:paddingRight="7dp"
+                app:srcCompat="@drawable/ic_fire" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/weeklyData"
+        android:paddingTop="5pt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border"
+        android:orientation="vertical">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/dayLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/carrois_gothic"
+                    android:gravity="center"
+                    android:text="Day"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/weightLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:fontFamily="@font/carrois_gothic"
+                    android:text="Weight"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/caloriesLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:fontFamily="@font/carrois_gothic"
+                    android:text="Calories"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/mondayLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Monday"
+                    android:fontFamily="@font/carrois_gothic"
+                    android:textColor="#000000"
+                    android:textStyle="italic" />
+
+                <EditText
+                    android:id="@+id/mondayWeight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:inputType="numberDecimal"
+                    android:fontFamily="@font/carrois_gothic"
+                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    android:hint="kg"
+                    android:textColorHint="@color/colorPrimary"/>
+
+                <EditText
+                    android:id="@+id/mondayCalories"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:fontFamily="@font/carrois_gothic"
+                    android:inputType="numberSigned"
+                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    android:hint="cal"
+                    android:textColorHint="@color/colorPrimary"/>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tuesdayLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Tuesday"
+                    android:fontFamily="@font/carrois_gothic"
+                    android:textColor="#000000"
+                    android:textStyle="italic" />
+
+                <EditText
+                    android:id="@+id/tuesdayWeight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:fontFamily="@font/carrois_gothic"
+                    android:inputType="numberDecimal"
+                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    android:hint="kg"
+                    android:textColorHint="@color/colorPrimary"/>
+
+                <EditText
+                    android:id="@+id/tuesdayCalories"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:fontFamily="@font/carrois_gothic"
+                    android:inputType="numberSigned"
+                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    android:hint="cal"
+                    android:textColorHint="@color/colorPrimary"/>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/wednesdayLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Wednesday"
+                    android:fontFamily="@font/carrois_gothic"
+                    android:textColor="#000000"
+                    android:textStyle="italic" />
+
+                <EditText
+                    android:id="@+id/wednesdayWeight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:fontFamily="@font/carrois_gothic"
+                    android:inputType="numberDecimal"
+                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    android:hint="kg"
+                    android:textColorHint="@color/colorPrimary"/>
+
+                <EditText
+                    android:id="@+id/wednesdayCalories"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:fontFamily="@font/carrois_gothic"
+                    android:inputType="numberSigned"
+                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    android:hint="cal"
+                    android:textColorHint="@color/colorPrimary"/>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/thursdayLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Thursday"
+                    android:fontFamily="@font/carrois_gothic"
+                    android:textColor="#000000"
+                    android:textStyle="italic" />
+
+                <EditText
+                    android:id="@+id/thursdayWeight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:fontFamily="@font/carrois_gothic"
+                    android:inputType="numberDecimal"
+                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    android:hint="kg"
+                    android:textColorHint="@color/colorPrimary"/>
+
+                <EditText
+                    android:id="@+id/thursdayCalories"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:fontFamily="@font/carrois_gothic"
+                    android:inputType="numberSigned"
+                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    android:hint="cal"
+                    android:textColorHint="@color/colorPrimary"/>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/fridayLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Friday"
+                    android:fontFamily="@font/carrois_gothic"
+                    android:textColor="#000000"
+                    android:textStyle="italic" />
+
+                <EditText
+                    android:id="@+id/fridayWeight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:fontFamily="@font/carrois_gothic"
+                    android:inputType="numberDecimal"
+                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    android:hint="kg"
+                    android:textColorHint="@color/colorPrimary"/>
+
+                <EditText
+                    android:id="@+id/fridayCalories"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:fontFamily="@font/carrois_gothic"
+                    android:inputType="numberSigned"
+                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    android:hint="cal"
+                    android:textColorHint="@color/colorPrimary"/>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/saturdayLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Saturday"
+                    android:fontFamily="@font/carrois_gothic"
+                    android:textColor="#000000"
+                    android:textStyle="italic" />
+
+                <EditText
+                    android:id="@+id/saturdayWeight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:fontFamily="@font/carrois_gothic"
+                    android:inputType="numberDecimal"
+                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    android:hint="kg"
+                    android:textColorHint="@color/colorPrimary"/>
+
+                <EditText
+                    android:id="@+id/saturdayCalories"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:fontFamily="@font/carrois_gothic"
+                    android:inputType="numberSigned"
+                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    android:hint="cal"
+                    android:textColorHint="@color/colorPrimary"/>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/sundayLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Sunday"
+                    android:fontFamily="@font/carrois_gothic"
+                    android:textColor="#000000"
+                    android:textStyle="italic" />
+
+                <EditText
+                    android:id="@+id/sundayWeight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:fontFamily="@font/carrois_gothic"
+                    android:inputType="numberDecimal"
+                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    android:hint="kg"
+                    android:textColorHint="@color/colorPrimary"/>
+
+                <EditText
+                    android:id="@+id/sundayCalories"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:fontFamily="@font/carrois_gothic"
+                    android:inputType="numberSigned"
+                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    android:hint="cal"
+                    android:textColorHint="@color/colorPrimary"/>
+
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/weeklySummary"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="4dp"
+        android:background="@drawable/border"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/weekStatistics"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0.5dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="15dp">
+
+                <TextView
+                    android:id="@+id/avgWeightLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/carrois_gothic"
+                    android:paddingLeft="7dp"
+                    android:text="Average weight:"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/avgWeight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:fontFamily="@font/carrois_gothic"
+                    android:textColor="#000000"
+                    android:text="0"
+                    android:textAlignment="center"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="30dp">
+
+                <TextView
+                    android:id="@+id/avgStepsLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/carrois_gothic"
+                    android:paddingLeft="8dp"
+                    android:layout_marginRight="3dp"
+                    android:text="Activity level:"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btnWeeklyWorkoutsActivity"
+                    android:layout_width="46dp"
+                    android:layout_height="22dp"
+                    android:layout_gravity="center"
+                    android:background="@android:color/background_light"
+                    android:drawableRight="@drawable/ic_dumbbell"
+                    android:fontFamily="@font/carrois_gothic"
+                    android:hint="empty"
+                    android:text="0"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textSize="14sp" />
+
+                <Button
+                    android:id="@+id/btnWeeklyStepsActivity"
+                    android:layout_width="74dp"
+                    android:layout_height="22dp"
+                    android:layout_gravity="center"
+                    android:paddingLeft="3dp"
+                    android:background="@android:color/background_light"
+                    android:drawableRight="@drawable/ic_step"
+                    android:fontFamily="@font/carrois_gothic"
+                    android:hint="empty"
+                    android:text="0"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/progressBarProportion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:paddingRight="8dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="-5dp"
+                android:fontFamily="@font/carrois_gothic"
+                android:text="0 / 0"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:drawableRight="@drawable/ic_fire"/>
+
+            <RelativeLayout
+                android:id="@+id/progressBarLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3pt"
+                    android:background="@drawable/border"
+                    android:progressDrawable="@drawable/custom_progress_bar" />
+
+                <TextView
+                    android:id="@+id/progressBarText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/progressBar"
+                    android:layout_alignLeft="@id/progressBar"
+                    android:layout_alignRight="@id/progressBar"
+                    android:layout_alignTop="@id/progressBar"
+                    android:fontFamily="@font/carrois_gothic_sc"
+                    android:gravity="center"
+                    android:text="0 left" />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/navigationFooterMenu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="1dp">
+
+            <Button
+                android:id="@+id/btnProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_baseline_person_outline_24px"
+                android:text="Profile"
+                android:textColor="@color/colorWhite"
+                android:background="@color/colorProfile"/>
+            <Button
+                android:id="@+id/btnDiary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_baseline_date_range_24px"
+                android:text="Diary"
+                android:textColor="@color/colorWhite"
+                android:background="@color/colorPrimary"/>
+            <Button
+                android:id="@+id/btnStatistics"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_baseline_equalizer_24px"
+                android:text="Statistics"
+                android:textColor="@color/colorWhite"
+                android:background="@color/colorStatistics"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

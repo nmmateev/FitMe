@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/dailyGoalPopupLabel"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/carrois_gothic"
+        android:text="@string/weekly_activity_popup_title_label" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/weeklyActivityPopupWorkoutsLabel"
+            android:layout_width="121dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/weekly_activity_popup_workouts_label" />
+
+        <EditText
+            android:id="@+id/weeklyActivityWorkoutsInput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="# workouts"
+            android:inputType="numberSigned"
+            android:drawableRight="@drawable/ic_dumbbell"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/weeklyActivityPopupStepsLabel"
+            android:layout_width="121dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/weekly_activity_popup_steps_label" />
+
+        <EditText
+            android:id="@+id/weeklyActivityStepsInput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="# steps"
+            android:inputType="numberSigned"
+            android:drawableRight="@drawable/ic_step"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnUpdateWeeklyActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="@dimen/fab_margin"
+        android:paddingRight="@dimen/fab_margin"
+        android:background="@color/colorSuccess"
+        android:drawableLeft="@drawable/ic_baseline_done_outline_24px"
+        android:text="@string/update_goal_label" />
+
+</LinearLayout>
